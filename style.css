@@ -1,0 +1,144 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6rem;
+}
+
+.social-box {
+  width: 12rem;
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 3rem rgba(0, 0, 0, 0.1), 0 20px 4rem rgba(0, 0, 0, 0.1);
+  border-radius: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* .social-box::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 4rem;
+  width: 4rem;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: rgba(240, 252, 16, 0.7);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.6s;
+} */
+
+/* .social-box:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(4);
+} */
+
+.social-box::before,
+.social-box::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  transition: all 0.6s;
+}
+
+/* Top Buttons  */
+.social-box--top::before {
+  left: 0;
+  top: -100%;
+  height: 100%;
+  width: 50%;
+}
+
+.social-box--top::after {
+  right: 0;
+  top: 100%;
+  height: 100%;
+  width: 50%;
+}
+
+.social-box--top:hover::before,
+.social-box--top:hover::after {
+  top: 0;
+}
+
+/* Middle Buttons  */
+.social-box--mid::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.social-box--mid:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(8);
+}
+
+/* Bottom Buttons  */
+.social-box--bottom::before {
+  left: -100%;
+  top: 0;
+  height: 50%;
+  width: 100%;
+}
+
+.social-box--bottom::after {
+  left: 100%;
+  bottom: 0;
+  height: 50%;
+  width: 100%;
+}
+
+.social-box--bottom:hover::before,
+.social-box--bottom:hover::after {
+  left: 0;
+}
+
+.social-icon {
+  width: 60%;
+  height: 60%;
+  z-index: 2;
+  transition: all 0.6s;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 40%;
+  }
+  .container {
+    gap: 2rem;
+  }
+}
